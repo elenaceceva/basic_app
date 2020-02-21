@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @to_dos = @user.to_dos.paginate(page: params[:page])
   end
   def create
     @user = User.new(user_params)

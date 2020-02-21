@@ -1,4 +1,10 @@
 <%= link_to "Log out", login_path %>
 <br>
 <%= link_to "Home page", home_path %>
-<h1>To do</h1>
+<div class="col-md-8">
+  <% if @user.to_dos.any? %>
+    <h3>To Dos (<%= @user.to_dos.count %>)</h3>
+      <%= render @to_dos %>
+    <%= will_paginate @to_dos %>
+  <% end %>
+</div>
