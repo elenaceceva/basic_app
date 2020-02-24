@@ -1,0 +1,9 @@
+<%= link_to "Log out", login_path %>
+<br>
+<%= link_to "Home page", home_path %>
+<h1>To do tasks:</h1>
+<%= form_for (@to_do) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit "Create new task" %>
+<% end %>

@@ -1,11 +1,20 @@
 class ToDosController < ApplicationController
 
    def new
-      @to_do = @user.to_dos.create(to_do_params)
-      redirect_to @user
+     @to_do = ToDo.new
    end
 
    def destroy
+   end
+
+   def index
+     @to_do = ToDo.where(user_id: session[:user_id])
+   end
+
+   def create
+     @user = User.find(session[:user_id])
+     @to_do = ToDo.create(content: params[:to_do][:content], user: @user)
+     redirect_to to_dos_path
    end
 
    private
