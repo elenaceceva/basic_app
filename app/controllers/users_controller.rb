@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to to_dos_path
+      redirect_to new_to_do_path
     else
       render 'new'
     end
