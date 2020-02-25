@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200221110828) do
+ActiveRecord::Schema.define(version: 20200225142137) do
 
   create_table "to_dos", force: :cascade do |t|
     t.text "content"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20200221110828) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
     t.index ["user_id", "created_at"], name: "index_to_dos_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_to_dos_on_user_id"
   end

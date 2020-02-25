@@ -1,7 +1,10 @@
 <h1>To do tasks</h1>
 <ul>
-  <% @to_do.each do |task| %>
-    <li><%= task.content %></li>
+  <% @to_dos.each do |to_do| %>
+    <li><%= to_do.content %></li>
+    <li><%= to_do.status %></li>
+    <%= link_to "Delete ", to_do_path(id: to_do.id), method: :delete %>
+    <%= link_to "Edit", edit_to_do_path(id: to_do.id), method: :get %>
   <% end %>
 </ul>
 <%= link_to "Back", new_to_do_path %>
